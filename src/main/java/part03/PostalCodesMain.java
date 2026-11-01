@@ -2,6 +2,7 @@ package part03;
 
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 /**
  * This part of the exercise is tested manually through the user interface, not
@@ -37,7 +38,7 @@ public class PostalCodesMain {
          * The keys in the map are postal codes and the values are postal district
          * names.
          */
-        Map<String, String> postalCodes = PostalCodesReader.readPostalCodes();
+        Map<String, String> postalCodes = new TreeMap<>(PostalCodesReader.readPostalCodes());
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input postal code or district (e.g., 00100 or Helsinki): ");
