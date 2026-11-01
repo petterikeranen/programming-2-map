@@ -28,6 +28,7 @@ public class PostalCodesMain {
      * program should be case-insensitive. For example, the program should display
      * "00100" whether the user enters "helsinki" or "HELSINKI".
      */
+
     public static void main(String[] args) {
         /*
          * This map contains data that is read from the JSON file. You don't need to
@@ -41,6 +42,20 @@ public class PostalCodesMain {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input postal code or district (e.g., 00100 or Helsinki): ");
         String answer = scanner.nextLine(); // answer may be a postal code or a postal district name
+        if (postalCodes.containsKey(answer)) {
+            System.out.println(postalCodes.get(answer));
+
+        } else { 
+            boolean match = false;
+            for (String first : postalCodes.keySet()) {
+                String area = postalCodes.get(first);
+
+                if (area.equalsIgnoreCase(answer)) {
+                    System.out.println(first);
+                    match = true;
+                }
+            }
+        }
 
         // TODO: Implement your logic here
 
